@@ -26,7 +26,7 @@ Then visit http://localhost:8080
 
 Static files live at the **repository root**. Enable branch-based Pages (same pattern as the Stewart Mechanical sample):
 
-1. **Settings → Pages**
+1. Open [Settings → Pages](https://github.com/kunyi523/golden-auto-hamilton/settings/pages)
 2. Build and deployment → Source: **Deploy from a branch**
 3. Branch: **main**, folder: **/** (root)
 4. Save
@@ -34,6 +34,8 @@ Static files live at the **repository root**. Enable branch-based Pages (same pa
 GitHub will serve the site at `https://kunyi523.github.io/golden-auto-hamilton/`.
 
 Do not add a GitHub Actions workflow for Pages. Use branch-based Pages from `main`.
+
+The Pages create API is blocked for GitHub App / Actions tokens (`Resource not accessible by integration`). That one Settings save is a user-token / UI step; after it, pushes to `main` publish automatically.
 
 ## Design
 
@@ -70,4 +72,4 @@ A small script only labels today’s hours in the America/Toronto timezone.
 - Invent extra services, prices, warranties, or certifications
 - Pretend Unsplash garage photos are this bay
 - Take bookings or payments
-- Copy copy from the Gus & Son or Stewart Mechanical samples as if it were this shop
+- Lift copy from the Gus & Son or Stewart Mechanical samples as if it were this shop
