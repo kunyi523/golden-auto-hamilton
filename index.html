@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Golden Auto Service — unofficial Hamilton sample</title>
+  <meta name="description" content="Unofficial sample one-pager for Golden Auto Service Inc / Golden Auto Repair at 35 Parkdale Ave N, Hamilton. Call 905-547-1112. Not affiliated.">
+  <meta name="theme-color" content="#0b0c0e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="canonical" href="https://kunyi523.github.io/golden-auto-hamilton/">
+  <meta property="og:title" content="Golden Auto Service, Hamilton — unofficial sample">
+  <meta property="og:description" content="Parkdale Avenue North auto repair. Call 905-547-1112. Unofficial sample — not the shop’s site.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:url" content="https://kunyi523.github.io/golden-auto-hamilton/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&amp;fit=crop&amp;w=1200&amp;q=75">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Golden Auto Service Inc",
+    "alternateName": ["Golden Auto Service", "Golden Auto Repair"],
+    "telephone": "+19055471112",
+    "email": "goldenautorepairs@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "35 Parkdale Ave N",
+      "addressLocality": "Hamilton",
+      "addressRegion": "ON",
+      "postalCode": "L8H 5W7",
+      "addressCountry": "CA"
+    },
+    "url": "https://kunyi523.github.io/golden-auto-hamilton/",
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:30"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00"}
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --color-primary: #c9a86a;
+      --color-primary-active: #e0c48a;
+      --color-ink: #ffffff;
+      --color-body: #c8c4bc;
+      --color-body-strong: #e8e4dc;
+      --color-muted: #8a8478;
+      --color-muted-soft: #5c574e;
+      --color-hairline: #2a2824;
+      --color-hairline-strong: #3d3932;
+      --color-canvas: #0b0c0e;
+      --color-surface-soft: #121418;
+      --color-surface-card: #181a1e;
+      --color-surface-elevated: #22252b;
+      --color-on-primary: #12100c;
+      --color-on-dark: #ffffff;
+      --color-closed: #7a7167;
+      --font-primary: Inter, system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --max: 1200px;
+      --sticky-h: 5.5rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      color-scheme: dark;
+    }
+    * { -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0;
+      background: var(--color-canvas);
+      color: var(--color-ink);
+      font-family: var(--font-primary);
+      font-size: 16px;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-primary); text-underline-offset: 0.18em; }
+    a:hover { color: var(--color-ink); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+    .skip {
+      position: absolute; left: 0.75rem; top: -3rem; z-index: 40;
+      background: var(--color-primary); color: var(--color-on-primary);
+      padding: 0.5rem 0.85rem; font-weight: 600; text-decoration: none; border-radius: var(--radius-md);
+    }
+    .skip:focus { top: 0.75rem; }
+    .page {
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      padding-bottom: calc(var(--sticky-h) + env(safe-area-inset-bottom, 0px));
+    }
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 max(1rem, env(safe-area-inset-right, 0px)) 0 max(1rem, env(safe-area-inset-left, 0px));
+    }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(11, 12, 14, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-hairline);
+    }
+    .site-header .wrap {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      min-height: 64px;
+    }
+    .wordmark {
+      display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: var(--color-ink);
+      min-height: 44px; justify-content: center;
+    }
+    .wordmark strong {
+      font-size: 0.95rem; font-weight: 700; letter-spacing: -0.3px; line-height: 1.2;
+    }
+    .wordmark span {
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--color-muted); font-weight: 500;
+    }
+    .nav { display: none; align-items: center; gap: 1.35rem; }
+    .nav a {
+      color: var(--color-body); text-decoration: none; font-size: 14px; font-weight: 500;
+    }
+    .nav a:hover { color: var(--color-primary); }
+    .btn-header { display: none; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 56px; padding: 12px 20px;
+      border-radius: var(--radius-md);
+      text-decoration: none; font-family: var(--font-primary);
+      font-size: 14px; font-weight: 600; line-height: 1;
+      border: 1px solid transparent; touch-action: manipulation;
+    }
+    .btn-call {
+      background: var(--color-primary); color: var(--color-on-primary);
+    }
+    .btn-call:hover { background: var(--color-primary-active); color: var(--color-on-primary); }
+    .btn-ghost {
+      background: var(--color-surface-card); color: var(--color-on-dark);
+      border-color: var(--color-hairline-strong);
+    }
+    .btn-ghost:hover { background: var(--color-surface-elevated); color: var(--color-ink); }
+    .btn-on-copper {
+      background: var(--color-on-primary); color: var(--color-primary);
+    }
+    .btn-on-copper:hover { background: #1a1814; color: var(--color-primary); }
+    .kicker, .section-label {
+      margin: 0;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--color-primary); line-height: 1.4;
+    }
+    .hero { padding: 2.5rem 0 1.5rem; }
+    .hero h1 {
+      margin: 0.5rem 0 0;
+      font-size: clamp(2.35rem, 11vw, 4.5rem);
+      line-height: 1.05; letter-spacing: -2px; font-weight: 700;
+    }
+    .lede {
+      margin: 1rem 0 0; max-width: 40rem;
+      font-size: 16px; line-height: 1.55; color: var(--color-body);
+    }
+    .today-chip {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      margin: 1rem 0 0; padding: 0.4rem 0.75rem;
+      border: 1px solid var(--color-hairline-strong);
+      border-radius: 9999px;
+      color: var(--color-body-strong);
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em;
+    }
+    .today-chip::before {
+      content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%;
+      background: var(--color-primary);
+    }
+    .today-chip.is-closed::before { background: var(--color-closed); }
+    .hero-aside { display: none; }
+    .cta-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin: 1.35rem 0 0;
+    }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem; margin: 1.6rem 0 0;
+    }
+    .stat {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-lg);
+      padding: 16px 12px;
+    }
+    .stat b {
+      display: block; font-size: clamp(1.15rem, 4vw, 1.7rem);
+      line-height: 1.1; letter-spacing: -1px; color: var(--color-primary); font-weight: 700;
+    }
+    .stat span { display: block; margin-top: 0.4rem; color: var(--color-muted); font-size: 13px; line-height: 1.4; }
+    section { padding: 3rem 0 0.25rem; }
+    .section-head { margin-bottom: 1.25rem; max-width: 42rem; }
+    h2 {
+      margin: 0.4rem 0 0.5rem;
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      line-height: 1.15; letter-spacing: -1px; font-weight: 700;
+    }
+    .section-intro { margin: 0; color: var(--color-muted); }
+    .photos { display: grid; gap: 0.75rem; }
+    figure {
+      margin: 0; background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); overflow: hidden;
+    }
+    figure img { width: 100%; height: 14rem; object-fit: cover; background: var(--color-surface-elevated); }
+    figcaption {
+      padding: 12px 16px 14px; color: var(--color-muted); font-size: 13px; line-height: 1.4;
+    }
+    .phone-lg {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: clamp(1.65rem, 7vw, 2.4rem);
+      font-weight: 500; letter-spacing: -1px; line-height: 1.1;
+      color: var(--color-ink); text-decoration: none;
+    }
+    .phone-lg:hover { color: var(--color-primary); }
+    .addr { font-style: normal; color: var(--color-body); margin: 0.5rem 0 0; }
+    .overview-grid { display: flex; flex-direction: column; gap: 1.75rem; }
+    .service-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;
+    }
+    .service {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+    }
+    .service h3 {
+      margin: 0 0 0.35rem; font-size: 16px; font-weight: 600; letter-spacing: -0.3px; line-height: 1.4;
+    }
+    .service p { margin: 0; color: var(--color-muted); font-size: 14px; line-height: 1.55; }
+    .service.span-2 { grid-column: 1 / -1; }
+    .chips {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;
+      margin: 0; padding: 0; list-style: none;
+    }
+    .chips li {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+    }
+    .chips b { display: block; font-size: 16px; font-weight: 600; letter-spacing: -0.3px; }
+    .chips span { display: block; margin-top: 0.3rem; color: var(--color-muted); font-size: 13px; }
+    .listing-cards { display: grid; gap: 0.75rem; margin: 0; }
+    .listing {
+      margin: 0; padding: 24px 20px 20px;
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-lg);
+    }
+    .listing p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--color-body-strong); }
+    .listing footer {
+      margin-top: 0.85rem;
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--color-primary);
+    }
+    .story p { margin: 0 0 1rem; color: var(--color-body); max-width: 40rem; }
+    .story p:last-child { margin-bottom: 0; }
+    .hours-list {
+      list-style: none; margin: 0; padding: 0;
+      border-top: 1px solid var(--color-hairline);
+    }
+    .hours-list li {
+      display: flex; justify-content: space-between; gap: 1rem;
+      padding: 0.85rem 0.1rem; border-bottom: 1px solid var(--color-hairline);
+      font-family: var(--font-mono); font-size: 14px;
+    }
+    .hours-list .day { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
+    .hours-list .closed { color: var(--color-closed); }
+    .hours-list .is-today {
+      background: rgba(201, 168, 106, 0.08);
+      box-shadow: inset 3px 0 0 var(--color-primary);
+      padding-left: 0.75rem;
+    }
+    .today-tag {
+      margin-left: 0.45rem; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--color-on-primary); background: var(--color-primary);
+      padding: 0.12rem 0.4rem; border-radius: 4px; font-family: var(--font-primary); font-weight: 600;
+    }
+    .hours-layout { display: flex; flex-direction: column; gap: 1.4rem; }
+    .map-wrap {
+      margin: 0.7rem 0 0.85rem; background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); overflow: hidden;
+      min-height: 14rem;
+    }
+    .map-wrap iframe {
+      display: block; width: 100%; height: 16.5rem; border: 0;
+    }
+    .visit-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin: 0.35rem 0 0; }
+    .note { color: var(--color-muted); font-size: 14px; margin: 0.9rem 0 0; }
+    .cta-band {
+      margin-top: 3rem;
+      background: var(--color-primary); color: var(--color-on-primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.25rem;
+    }
+    .cta-band h2 { color: var(--color-on-primary); letter-spacing: -1px; }
+    .cta-band p { margin: 0.5rem 0 1.15rem; color: #1a1814; max-width: 36rem; }
+    .cta-band .phone-lg { color: var(--color-on-primary); }
+    .cta-band .phone-lg:hover { color: #242424; }
+    .site-footer {
+      margin-top: 2.5rem; padding: 1.35rem 0 1.6rem;
+      border-top: 1px solid var(--color-hairline);
+      color: var(--color-muted); font-size: 13px; line-height: 1.55;
+    }
+    .site-footer p { margin: 0 0 0.5rem; }
+    .site-footer p:last-child { margin-bottom: 0; }
+    .sticky {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      background: rgba(11, 12, 14, 0.94); backdrop-filter: blur(14px);
+      border-top: 1px solid var(--color-hairline);
+      padding: 0.7rem 0.85rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    }
+    .sticky-inner {
+      width: 100%; max-width: 28rem; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem;
+    }
+    .aside-hours { list-style: none; margin: 0.85rem 0 0; padding: 0; color: var(--color-body); font-size: 14px; }
+    .aside-hours li {
+      display: flex; justify-content: space-between; gap: 1rem;
+      padding: 0.4rem 0; border-bottom: 1px solid var(--color-hairline);
+      font-family: var(--font-mono);
+    }
+    .pull {
+      margin: 0; padding: 1.4rem 1.3rem 1.25rem;
+      border: 1px solid var(--color-hairline-strong);
+      border-radius: var(--radius-lg);
+      background: rgba(201, 168, 106, 0.06);
+    }
+    .pull p { margin: 0; color: var(--color-body-strong); font-size: 1.05rem; }
+    .pull span {
+      display: block; margin-top: 0.7rem;
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--color-primary);
+    }
+    @media (min-width: 900px) {
+      .page { padding-bottom: 0; }
+      .sticky { display: none; }
+      .wrap { padding-left: 2rem; padding-right: 2rem; }
+      .nav { display: flex; }
+      .btn-header { display: inline-flex; min-height: 40px; padding: 10px 16px; }
+      .hero { padding: 4.5rem 0 2rem; }
+      .hero-grid {
+        display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.7fr);
+        gap: 3.5rem; align-items: end;
+      }
+      .lede { font-size: 18px; line-height: 1.69; }
+      .cta-row { display: flex; max-width: 28rem; }
+      .cta-row .btn { min-width: 11rem; }
+      section { padding: 6rem 0 0.4rem; }
+      .photos { grid-template-columns: 1.15fr 0.85fr; }
+      figure img { height: 20rem; }
+      .overview-grid {
+        display: grid; grid-template-columns: 1.05fr 0.95fr;
+        gap: 2.5rem 3.5rem; align-items: start;
+      }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .chips { grid-template-columns: repeat(4, 1fr); }
+      .listing-cards { grid-template-columns: 1fr 1fr 1fr; }
+      .about-grid, .hours-layout {
+        display: grid; grid-template-columns: 1.15fr 0.85fr;
+        gap: 3rem; align-items: start;
+      }
+      .map-wrap iframe { height: 22rem; }
+      .cta-band { padding: 4rem 3rem; }
+      .hero-aside {
+        display: block;
+        border-left: 1px solid var(--color-hairline);
+        padding-left: 2rem;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#overview">Skip to overview</a>
+  <div class="page">
+    <header class="site-header">
+      <div class="wrap">
+        <a class="wordmark" href="#overview">
+          <strong>Golden Auto</strong>
+          <span>Unofficial sample</span>
+        </a>
+        <nav class="nav" aria-label="Page">
+          <a href="#overview">Overview</a>
+          <a href="#services">Services</a>
+          <a href="#listings">Listings</a>
+          <a href="#hours">Hours &amp; map</a>
+        </nav>
+        <a class="btn btn-call btn-header" href="tel:+19055471112">Call</a>
+      </div>
+    </header>
+    <div class="wrap">
+      <section class="hero" aria-label="Golden Auto Service">
+        <div class="hero-grid">
+          <div>
+            <p class="kicker">35 Parkdale Ave N · Hamilton</p>
+            <h1>Need the car back. Call the shop.</h1>
+            <p class="lede">Golden Auto Service Inc is listed at 35 Parkdale Ave N in East Hamilton. Directories also print Golden Auto Repair at the same bay. This page is an unofficial sample — not the shop’s site. No form. Call.</p>
+            <p class="today-chip" id="today-chip">Mon–Fri 9:00 AM–5:30 PM · Sat 9:00 AM–1:00 PM</p>
+            <div class="cta-row">
+              <a class="btn btn-call" href="tel:+19055471112">Call 905-547-1112</a>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=35+Parkdale+Ave+N,+Hamilton,+ON+L8H+5W7" rel="noopener">Directions</a>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <b>Parkdale</b>
+                <span>35 Parkdale Ave N, L8H 5W7</span>
+              </div>
+              <div class="stat">
+                <b>905-547-1112</b>
+                <span>Number Maps-style directories use</span>
+              </div>
+              <div class="stat">
+                <b>Sat to 1</b>
+                <span>AutoTechIQ hours · call to confirm</span>
+              </div>
+            </div>
+          </div>
+          <aside class="hero-aside">
+            <p class="section-label">Call the shop</p>
+            <p><a class="phone-lg" href="tel:+19055471112">905-547-1112</a></p>
+            <ul class="aside-hours">
+              <li><span>Mon–Fri</span><span>9:00 AM–5:30 PM</span></li>
+              <li><span>Saturday</span><span>9:00 AM–1:00 PM</span></li>
+              <li><span>Sunday</span><span>Closed</span></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+      <div class="photos">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" srcset="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w, https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&amp;fit=crop&amp;w=1400&amp;q=70 1400w" sizes="(min-width: 900px) 55vw, 100vw" width="1400" height="900" alt="Mechanic working under a vehicle in a service bay. Licensed atmosphere stock, not a photo of this shop." decoding="async">
+          <figcaption>Atmosphere stock — not this shop. Unsplash, not a photo of 35 Parkdale Ave N.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&amp;fit=crop&amp;w=1200&amp;q=70" width="1200" height="800" alt="Tools and a vehicle in an auto repair garage. Licensed atmosphere stock, not a photo of this shop." loading="lazy" decoding="async">
+          <figcaption>Garage stock — not this bay. The real shop is on the map below.</figcaption>
+        </figure>
+      </div>
+      <section id="overview">
+        <div class="section-head">
+          <p class="section-label">Overview</p>
+          <h2>Call. Don’t fill in a box.</h2>
+          <p class="section-intro">This page does not take bookings or payments. Click to call 905-547-1112, or email the address PCBO prints if you already have that contact.</p>
+        </div>
+        <div class="overview-grid">
+          <div>
+            <p><a class="phone-lg" href="tel:+19055471112">905-547-1112</a></p>
+            <address class="addr">
+              Golden Auto Service Inc<br>
+              35 Parkdale Ave N<br>
+              Hamilton, ON L8H 5W7
+            </address>
+            <p class="note"><a href="#hours">Hours, map, and the Parkdale address</a></p>
+            <p class="note">Email from PCBO: <a href="mailto:goldenautorepairs@gmail.com">goldenautorepairs@gmail.com</a></p>
+          </div>
+          <div>
+            <p class="section-label">On the directories</p>
+            <p class="section-intro" style="margin-top:.65rem">Copy stays with what Maps-style listings, AutoTechIQ, and PCBO actually print. Services below are from those cards — not extra tickets invented here.</p>
+            <ul class="chips">
+              <li><b>Repair</b><span>General auto repair shops</span></li>
+              <li><b>Brakes</b><span>Listed on directory cards</span></li>
+              <li><b>Diagnostics</b><span>Tune-ups and checks</span></li>
+              <li><b>Alignment</b><span>Wheel alignment listed</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="services">
+        <div class="section-head">
+          <p class="section-label">Services</p>
+          <h2>East Hamilton auto repair.</h2>
+          <p class="section-intro">From public listings only. This page does not add prices, warranties, or extra tickets.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service">
+            <h3>Diagnostics</h3>
+            <p>Directory cards list vehicle diagnostics and tune-ups. Ask when you call what they can take this week.</p>
+          </article>
+          <article class="service">
+            <h3>Brakes</h3>
+            <p>Brake service is on AllBiz, MapQuest, and other Hamilton auto-repair listings for this address.</p>
+          </article>
+          <article class="service">
+            <h3>Maintenance</h3>
+            <p>Scheduled maintenance, oil and fluid service, and related upkeep appear on the public cards.</p>
+          </article>
+          <article class="service">
+            <h3>Tires &amp; alignment</h3>
+            <p>Tire services and laser / precision wheel alignment are printed on directory listings. Confirm on the phone.</p>
+          </article>
+          <article class="service span-2">
+            <h3>Call 905-547-1112 before you drop in</h3>
+            <p>Hours on this page follow AutoTechIQ (Mon–Fri 9:00 AM–5:30 PM, Sat 9:00 AM–1:00 PM, Sun closed). Some aggregator directories print a longer weekday and a different Saturday window. This sample does not invent a booking calendar. Call first.</p>
+          </article>
+        </div>
+      </section>
+      <section id="listings">
+        <div class="section-head">
+          <p class="section-label">Listings</p>
+          <h2>What directories print.</h2>
+          <p class="section-intro">This sample does not invent customer quotes. AutoTechIQ reports about 4.6 from Google — that figure is noted here without copied review text.</p>
+        </div>
+        <div class="listing-cards">
+          <blockquote class="listing">
+            <p>Golden Auto Service Inc, 35 Parkdale Ave N, Hamilton, ON L8H 5W7. Phone +1 905-547-1112. Hours: Monday–Friday 9:00 AM–5:30 PM, Saturday 9:00 AM–1:00 PM, Sunday closed.</p>
+            <footer>AutoTechIQ</footer>
+          </blockquote>
+          <blockquote class="listing">
+            <p>GOLDEN AUTO REPAIR at 35 Parkdale Ave. N., Hamilton, ON L8H 5W7. Phone 905-547-0355. Email goldenautorepairs@gmail.com. Category: auto body. Certified technician listing for Javid Awan.</p>
+            <footer>PCBO directory</footer>
+          </blockquote>
+          <blockquote class="listing">
+            <p>Same street and the Maps number: 35 Parkdale Ave N. Phone +1 (905) 547-1112. MapQuest also prints goldenautoservice.com. AllBiz lists 905-547-0355 as fax for Golden Auto Service Inc.</p>
+            <footer>MapQuest / AllBiz</footer>
+          </blockquote>
+        </div>
+      </section>
+      <section id="about" class="story">
+        <div class="section-head">
+          <p class="section-label">About</p>
+          <h2>Parkdale, not an invented story.</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <p>Maps-style directories list the shop as <strong>Golden Auto Service Inc</strong> at 35 Parkdale Avenue North, East Hamilton. Yelp’s card for this address uses Golden Auto Centre. PCBO lists the same bay as <strong>Golden Auto Repair</strong>.</p>
+            <p>The number this sample puts on the Call button is <strong>905-547-1112</strong> — AutoTechIQ, MapQuest, Yelp, and AllBiz. PCBO prints <strong>905-547-0355</strong>. AllBiz also files 905-547-0355 as fax. Both numbers are noted; 905-547-1112 is the one major directories use for click-to-call.</p>
+            <p>A City of Hamilton public-garage licence listing names 2355823 Ontario Inc o/a New Golden Auto Service at this Parkdale address. This page does not invent owners, staff stories, or a year founded beyond what those cards print.</p>
+          </div>
+          <div class="pull">
+            <p>Unofficial sample. Call 905-547-1112. This page does not take the job, the deposit, or the booking.</p>
+            <span>Hamilton · Parkdale</span>
+          </div>
+        </div>
+      </section>
+      <section id="hours">
+        <div class="section-head">
+          <p class="section-label">Hours</p>
+          <h2>When AutoTechIQ says they’re open.</h2>
+          <p class="section-intro">Grid below is AutoTechIQ’s public hours. Call 905-547-1112 if you need them to match the door that day.</p>
+        </div>
+        <div class="hours-layout">
+          <div>
+            <ul class="hours-list">
+              <li data-day="mon"><span class="day">Monday</span><span>9:00 AM–5:30 PM</span></li>
+              <li data-day="tue"><span class="day">Tuesday</span><span>9:00 AM–5:30 PM</span></li>
+              <li data-day="wed"><span class="day">Wednesday</span><span>9:00 AM–5:30 PM</span></li>
+              <li data-day="thu"><span class="day">Thursday</span><span>9:00 AM–5:30 PM</span></li>
+              <li data-day="fri"><span class="day">Friday</span><span>9:00 AM–5:30 PM</span></li>
+              <li data-day="sat"><span class="day">Saturday</span><span>9:00 AM–1:00 PM</span></li>
+              <li data-day="sun"><span class="day">Sunday</span><span class="closed">Closed</span></li>
+            </ul>
+            <p class="note">Some aggregator directories print Monday–Friday 9:00 AM–6:00 PM and Saturday 10:00 AM–2:00 PM. This page keeps AutoTechIQ. No bookings or payments on this sample.</p>
+          </div>
+          <div>
+            <p class="section-label">Map</p>
+            <address class="addr">35 Parkdale Ave N<br>Hamilton, ON L8H 5W7</address>
+            <div class="map-wrap">
+              <iframe title="Map of 35 Parkdale Avenue North, Hamilton, Ontario" src="https://maps.google.com/maps?q=35%20Parkdale%20Ave%20N%2C%20Hamilton%2C%20ON%20L8H%205W7&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+            <div class="visit-actions">
+              <a class="btn btn-call" href="tel:+19055471112">Call 905-547-1112</a>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=35+Parkdale+Ave+N,+Hamilton,+ON+L8H+5W7" rel="noopener">Get directions</a>
+            </div>
+            <p class="note">Open the same address on <a href="https://www.google.com/maps/search/?api=1&amp;query=35+Parkdale+Ave+N,+Hamilton,+ON+L8H+5W7" rel="noopener">Google Maps</a> if the embed is picky on your phone.</p>
+          </div>
+        </div>
+      </section>
+      <section class="cta-band" aria-label="Call Golden Auto">
+        <p class="kicker" style="color:#1a1814">Hamilton · Call</p>
+        <h2>Call Golden Auto at 905-547-1112</h2>
+        <p>Parkdale Avenue North auto repair. Unofficial sample page — pick up the phone, don’t submit a form.</p>
+        <p><a class="phone-lg" href="tel:+19055471112">905-547-1112</a></p>
+        <div class="cta-row">
+          <a class="btn btn-on-copper" href="tel:+19055471112">Call now</a>
+          <a class="btn btn-on-copper" href="https://www.google.com/maps/dir/?api=1&amp;destination=35+Parkdale+Ave+N,+Hamilton,+ON+L8H+5W7" rel="noopener">Directions</a>
+        </div>
+      </section>
+      <footer class="site-footer">
+        <p><strong>Unofficial sample</strong> for Golden Auto Service Inc / Golden Auto Repair · Hamilton. Not affiliated. Prepared so the shop can see what a simple site could look like.</p>
+        <p>No bookings, no payments, no invented reviews. Call 905-547-1112. PCBO also lists 905-547-0355 and <a href="mailto:goldenautorepairs@gmail.com">goldenautorepairs@gmail.com</a>. Atmosphere photos: Unsplash, not this shop.</p>
+      </footer>
+    </div>
+    <div class="sticky" role="navigation" aria-label="Call or directions">
+      <div class="sticky-inner">
+        <a class="btn btn-call" href="tel:+19055471112">Call 905-547-1112</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=35+Parkdale+Ave+N,+Hamilton,+ON+L8H+5W7" rel="noopener">Directions</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var weekday = new Intl.DateTimeFormat("en-US", { timeZone: "America/Toronto", weekday: "short" }).format(new Date()).slice(0, 3).toLowerCase();
+      var openUntil = { mon: "5:30 PM", tue: "5:30 PM", wed: "5:30 PM", thu: "5:30 PM", fri: "5:30 PM", sat: "1:00 PM" };
+      var row = document.querySelector('[data-day="' + weekday + '"]');
+      if (row) {
+        row.classList.add("is-today");
+        var tag = document.createElement("span");
+        tag.className = "today-tag";
+        tag.textContent = "Today";
+        row.querySelector(".day").appendChild(tag);
+      }
+      var chip = document.getElementById("today-chip");
+      if (!chip) return;
+      if (openUntil[weekday]) {
+        chip.textContent = "Open today until " + openUntil[weekday];
+        chip.classList.remove("is-closed");
+      } else {
+        chip.textContent = "Closed today · Open Monday to Saturday";
+        chip.classList.add("is-closed");
+      }
+    })();
+  </script>
+</body>
+</html>
